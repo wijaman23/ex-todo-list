@@ -1,2 +1,9 @@
 <!-- TODO: render a form to create a new task with a title field -->
 <!-- remember form action and method attributes ;) -->
+<form action="/tasks" method="post">
+  <div class="mb-3">
+    <label for="task" class="form-label">TASKS</label>
+    <input type="text" class="form-control" name="title">
+  </div>
+  <button type="submit" class="btn btn-primary">Submit</button>
+</form>
