@@ -1,2 +1,17 @@
 <!-- TODO: render a beautiful task detail -->
-details
+
+<div>
+    <h1>Details TASK</h1>
+
+    <div class="d-flex flex-row mb-3">
+        <div>
+            <h4>{{task.title}}</h4>
+        </div>
+        <div class="list-btn-group">
+            <form action="/tasks/{{task.id}}/delete" method="post">
+                <button type="submit" class="btn btn-danger">Delete task</button>
+            </form>
+        </div>
+    </div>
+    <a class="btn btn-primary" href="/tasks">Go to tasks</a>
+</div>

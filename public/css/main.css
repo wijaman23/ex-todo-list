@@ -1,0 +1,26 @@
+@import url('https://fonts.googleapis.com/css2?family=Rubik+Moonrocks&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Titan+One&display=swap');
+
+.container-layout{
+    margin-left: 20px; 
+    margin-top: 30px; 
+}
+.container-layout h1{
+    font-size: 5em;
+    font-family: 'Rubik Moonrocks', cursive;
+}
+.container-layout h3{
+    font-size: 2em;
+    font-family: 'Rubik Moonrocks', cursive;
+}
+.container-list{
+  margin-left: 20px; 
+  margin-top: 30px; 
+  font-family: 'Titan One', cursive;
+}
+.list-btn{
+    margin-top: 20px;
+}
+.list-btn-group{
+    margin-left: 10PX;
+}

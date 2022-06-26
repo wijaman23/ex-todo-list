@@ -12,10 +12,15 @@ module.exports.list = (req, res, next) => {
 module.exports.detail = (req, res, next) => {
   // TODO: use Task.findById(id) to get task by id and render task detail
   // Task.findById() returns a promise that resolves with task detail (or undefined if it does not exist)
-  const {id} = req.params
-  Task.findById(id)
-    .then(tasks => res.render('tasks/detail', {tasks}))
+  Task.findById(req.params.id)
+    .then(task => res.render('tasks/detail', {task}))
     .catch(error => console.log (error))
+};
+
+module.exports.new = (req, res, next) => {
+  // TODO: use Task.findById(id) to get task by id and render task detail
+
+  res.render('tasks/new')
 };
 
 module.exports.create = (req, res, next) => {
@@ -31,5 +36,6 @@ module.exports.create = (req, res, next) => {
 module.exports.delete = (req, res, next) => {
   // TODO: use Task.findByIdAndDelete(id) to delete a task and redirect to list
   // Task.findByIdAndDelete() returns a promise that resolves with undefined
-  res.send("TODO");
+  Task.findByIdAndDelete(req.params.id)
+    res.redirect('/tasks')
 };
