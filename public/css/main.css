@@ -24,3 +24,9 @@
 .list-btn-group{
     margin-left: 10PX;
 }
+.task-text{
+    width: 50%;
+}
+a:link, a:visited, a:active {
+    text-decoration:none;
+}
