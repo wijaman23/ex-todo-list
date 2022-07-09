@@ -30,3 +30,12 @@
 a:link, a:visited, a:active {
     text-decoration:none;
 }
+
+.img-detail{
+    width: 400px;
+    height: auto;
+}
+.img-user{
+    width: auto;
+    height: 200px;
+}

@@ -1,19 +1,24 @@
-<div class="container-list">
-    {{#each tasks as |task|}}
-        <ul class="list-group">
-            <div class="d-flex flex-row mb-3">
-                <div class="task-text">
-                    <a href="/tasks/{{task.id}}"><li class="list-group-item">{{task.title}}</li></a>
+<div class="container-layout">
+        <h1>TODO LIST</h1>
+        <h3> List tasks</h3>
+    <div class="container-list">
+        {{#each tasks as |task|}}
+            <ul class="list-group">
+                <div class="d-flex flex-row mb-3">
+                    <div class="task-text">
+                        <a href="/tasks/{{task.id}}"><li class="list-group-item">{{task.title}}</li></a>
+                    </div>
+                    <div class="list-btn-group">
+                        <form action="/tasks/{{task.id}}/delete" method="post">
+                            <button type="submit" class="btn btn-danger">Delete</button>
+                        </form>
+                    </div>
                 </div>
-                <div class="list-btn-group">
-                    <form action="/tasks/{{task.id}}/delete" method="post">
-                        <button type="submit" class="btn btn-danger">Delete</button>
-                    </form>
-                </div>
+            </ul>
+        {{/each}} 
+            <div class="list-btn">
+                <a class="btn btn-primary" role="button" href="/tasks/new">New task</a>
+                <a class="btn btn-secondary" role="button" href="/">Return</a>
             </div>
-        </ul>
-    {{/each}} 
-        <div class="list-btn">
-            <a class="btn btn-primary" role="button" href="/tasks/new">New task</a>
-        </div>
+    </div>
 </div>

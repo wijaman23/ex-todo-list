@@ -4,6 +4,9 @@
     <div class="d-flex flex-row mb-3">
         <div class="task-text">
             <h4>{{task.title}}</h4>
+            <h4>{{task.description}}</h4>
+            <h4>{{task.author}}</h4>
+            <img class="img-detail" src="{{task.image}}" >
         </div>
         <div class="list-btn-group">
             <form action="/tasks/{{task.id}}/delete" method="post">

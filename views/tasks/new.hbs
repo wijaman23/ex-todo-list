@@ -1,12 +1,32 @@
 <div class="container-list">
     <form action="/tasks" method="post">
-    <div class="mb-3">
-        <label for="task" class="form-label">TASKS</label>
-        <div class="task-text">
-            <input type="text" class="form-control" name="title" placeholder="Insert your task title">
+        <div class="mb-3">
+            <label for="title" class="form-label">Title</label>
+            <div class="task-text">
+                <input type="text" class="form-control" id="title" name="title" placeholder="Insert your task title">
+            </div>
         </div>
-    </div>
+        <div class="mb-3">
+            <label for="author" class="form-label">description</label>
+            <div class="task-text">
+                <textarea type="text" class="form-control" id="description" name="description" rows="6"></textarea>
+            </div>
+        </div>
+        <div class="mb-3">
+            <label for="author" class="form-label">Author</label>
+            <div class="task-text">
+                <input type="text" class="form-control" id="author" name="author">
+            </div>
+        </div>
+        <div class="mb-3">
+            <label for="image" class="form-label">Imagen</label>
+            <div class="task-text">
+                <input type="text" class="form-control" id="image" name="image">
+            </div>
+        </div>
+
     <button type="submit" class="btn btn-primary">Submit</button>
+    
     </form>
 </div>
 

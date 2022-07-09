@@ -1,5 +1,5 @@
-const { tasks } = require("../services/tasks.service");
-const Task = require("../services/tasks.service");
+const { tasks } = require("../models/task.model")
+const Task = require("../models/task.model")
 
 module.exports.list = (req, res, next) => {
   Task.find()
@@ -18,7 +18,7 @@ module.exports.new = (req, res, next) => {
 };
 
 module.exports.create = (req, res, next) => {
-  const data = {title: req.body.title}
+  const data = req.body
 
   Task.create(data)
     .then(() => res.redirect('/tasks'))
@@ -26,10 +26,9 @@ module.exports.create = (req, res, next) => {
 };
 
 module.exports.delete = (req, res, next) => {
-
   const id = req.params.id
 
   Task.findByIdAndDelete(id)
-  .then(() => res.redirect('/tasks'))
-  .catch(error => console.log(error))
+    .then(() => res.redirect('/tasks'))
+    .catch(error => console.log(error))
 };

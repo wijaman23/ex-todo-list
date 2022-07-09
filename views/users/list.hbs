@@ -1,0 +1,24 @@
+<div class="container-layout">
+    <h1>TODO LIST</h1>
+    <h3> List users</h3>
+    <div class="row row-cols-1 row-cols-md-6 g-4">
+        {{#each users as |user|}}
+        <div class="col">
+            <div class="card">
+                <img src="{{user.img}}" class="img-user" alt="user">
+                <div class="card-body">
+                    <h5 class="card-title">{{user.name}}</h5>
+                    <p class="card-text">{{user.email}}</p>
+                    <small class="card-text">{{user.password}}</small>
+                </div>
+            </div>
+        </div>
+        {{/each}} 
+    </div>
+    <div class="list-btn">
+        <a class="btn btn-primary" role="button" href="/users/new">New user</a>
+    </div>
+    <div class="list-btn">
+        <a class="btn btn-secondary" role="button" href="/">Return</a>
+    </div>
+</div>
