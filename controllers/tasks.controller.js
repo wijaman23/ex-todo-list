@@ -1,5 +1,4 @@
-const { tasks } = require("../models/task.model")
-const Task = require("../models/task.model")
+const { Task } = require("../models")
 
 module.exports.list = (req, res, next) => {
   Task.find()

@@ -1,6 +1,5 @@
 const mongoose = require('mongoose');
-const { users } = require("../models/task.model")
-const User = require("../models/user.model")
+const { User } = require("../models")
 
 module.exports.home = (req, res, next) => {
     res.render('home')
@@ -12,21 +11,35 @@ module.exports.list = (req, res, next) => {
       .catch((error) => next(error))
 };
 
-module.exports.new = (req, res, next) => {
-    res.render('users/new')
+module.exports.register = (req, res, next) => {
+    res.render('users/register')
 };
 
 module.exports.create = (req, res, next) => {
-    const user = req.body
-  
-    User.create(user)
-      .then(() => res.redirect('/users'))
-      .catch((error) => {
-        if (error instanceof mongoose.Error.ValidationError) {
-          console.error(error);
-          res.render("users/new", { errors: error.errors, user });
+
+    function renderError (errors) {
+        res.render("users/register", {
+            user: req.body,
+            errors
+        })
+    }
+
+    const { email } = req.body
+    User.findOne({ email })
+    .then(user => {
+        if (user) {
+            renderError({email: "Email ya existe"})
         } else {
-          next(error);
+            const user = req.body
+            return User.create(user)
+            .then((user) => res.redirect('/users'))
+        }
+    })
+    .catch((error) => {
+        if (error instanceof mongoose.Error.ValidationError) {
+            renderError(error.errors)
+        } else {
+          next(error)
         }
       })
   };
