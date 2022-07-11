@@ -1,6 +1,6 @@
 const express = require("express");
 const router = express.Router();
-const { tasks, auth, users } = require('../controllers')
+const { tasks, users } = require('../controllers')
 
 
 router.get('/tasks', tasks.list)
@@ -11,7 +11,10 @@ router.post('/tasks/:id/delete', tasks.delete)
 
 router.get('/users', users.list)
 router.get('/users/register', users.register)
-router.post('/users', users.create)
+router.post('/users/register', users.create)
+
+router.get('/users/login', users.login)
+router.post('/users/login', users.dologin)
 
 router.get('/', users.home)
 
