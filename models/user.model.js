@@ -50,7 +50,8 @@ userSchema.pre("validate", function (next) {
 
 userSchema.pre("save", function (next) {
     if (this.isModified("password")) {
-        bcrypt.hash(this.password, WORK_FACTOR)
+        bcrypt
+            .hash(this.password, WORK_FACTOR)
             .then(hash => {
                 this.password = hash
                 next()
